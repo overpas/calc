@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?android:buttonBarStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:stretchColumns="*"
+    android:weightSum="8"
+    tools:context=".MainActivity">
+
+    <HorizontalScrollView
+        style="@style/ExpressionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal">
+
+        <TextView
+            android:id="@+id/tvExpressionText"
+            style="@style/ExpressionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:paddingBottom="8dp"
+            android:paddingEnd="6dp"
+            android:paddingStart="6dp"
+            android:paddingTop="8dp"
+            android:scrollHorizontally="true" />
+
+    </HorizontalScrollView>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnSqrt"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_sqrt" />
+
+        <Button
+            android:id="@+id/btnPower"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_power" />
+
+        <Button
+            android:id="@+id/btnFactorial"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_factorial" />
+
+        <Button
+            android:id="@+id/btnClear"
+            style="@style/ControlButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_clear" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn1"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_1" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_2" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_3" />
+
+        <Button
+            android:id="@+id/btnPlus"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_plus" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn4"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_4" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_5" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_6" />
+
+        <Button
+            android:id="@+id/btnMinus"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_minus" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn7"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_7" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_8" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_9" />
+
+        <Button
+            android:id="@+id/btnMultiply"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_multiply" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn0"
+            style="@style/NumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_0" />
+
+        <Button
+            android:id="@+id/btnDot"
+            style="@style/HelperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_dot" />
+
+        <Button
+            android:id="@+id/btnEquals"
+            style="@style/ControlButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_equals" />
+
+        <Button
+            android:id="@+id/btnDivide"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_divide" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnLeftBracket"
+            style="@style/HelperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_left_bracket" />
+
+        <Button
+            android:id="@+id/btnRightBracket"
+            style="@style/HelperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_right_bracket" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            style="@style/ControlButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_delete" />
+
+        <Button
+            android:id="@+id/btnLn"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_ln" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnSin"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_sin" />
+
+        <Button
+            android:id="@+id/btnCos"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_cos" />
+
+        <Button
+            android:id="@+id/btnTg"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_tg" />
+
+        <Button
+            android:id="@+id/btnCtg"
+            style="@style/MathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text="@string/text_ctg" />
+    </TableRow>
+</TableLayout>
