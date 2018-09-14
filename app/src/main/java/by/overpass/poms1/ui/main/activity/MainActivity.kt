@@ -17,9 +17,15 @@ class MainActivity : AppCompatActivity(), ExpressionEvaluator.ResultCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ExpressionEvaluator.setResultCallback(this)
         savedInstanceState?.let {
             tvExpressionText.text = savedInstanceState.getString(RESULT_KEY) ?: ""
         }
+    }
+
+    override fun onStop() {
+        ExpressionEvaluator.setResultCallback(null)
+        super.onStop()
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -64,7 +70,7 @@ class MainActivity : AppCompatActivity(), ExpressionEvaluator.ResultCallback {
     }
 
     private fun processInput(item: Item) {
-        if (ExpressionEvaluator.process(item, this)) {
+        if (ExpressionEvaluator.process(item)) {
             tvExpressionText.append(item.value)
         }
     }

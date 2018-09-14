@@ -7,28 +7,36 @@ import java.math.BigDecimal
 
 object ExpressionEvaluator {
 
+    private var resultCallback: ResultCallback? = null
     private val expressionItems: MutableList<Item> = mutableListOf()
 
-    fun process(item: Item, callback: ResultCallback): Boolean {
+    fun setResultCallback(resultCallback: ResultCallback?) {
+        this.resultCallback = resultCallback
+    }
+
+    /**
+     * @return true if the item value has to be appended to the displaying view
+     */
+    fun process(item: Item): Boolean {
         if (expressionItems.isNotEmpty() && expressionItems.last() == Item.DOT && item == Item.DOT) {
             return false
         }
         if (!item.type.isAction()) {
             expressionItems.add(item)
         } else {
-            processAction(item, callback)
+            processAction(item)
         }
         return true
     }
 
-    private fun processAction(item: Item, callback: ResultCallback) {
+    private fun processAction(item: Item) {
         when (item) {
             Item.EQUALS -> {
-                calculate(callback)
+                calculate()
             }
             Item.CLEAR -> {
                 clearExpressionItems()
-                callback.onClear()
+                resultCallback?.onClear()
             }
             Item.DELETE -> {
                 var removedItem: Item? = null
@@ -36,7 +44,7 @@ object ExpressionEvaluator {
                     removedItem = expressionItems.removeAt(expressionItems.size - 1)
                 }
                 if (removedItem != null) {
-                    callback.onDelete(removedItem)
+                    resultCallback?.onDelete(removedItem)
                 }
             }
             else -> {
@@ -44,7 +52,7 @@ object ExpressionEvaluator {
         }
     }
 
-    private fun calculate(callback: ResultCallback) {
+    private fun calculate() {
         runInBackground {
             val expressionString = StringBuilder()
             expressionItems.forEach {
@@ -54,16 +62,16 @@ object ExpressionEvaluator {
                 val result = Expression(expressionString.toString()).eval()
                 clearExpressionItems()
                 expressionItems.add(Item(result.toPlainString(), Type.NUMBER))
-                runOnUI { callback.onSuccess(result) }
+                runOnUI { resultCallback?.onSuccess(result) }
             } catch (exception: Expression.ExpressionException) {
                 clearExpressionItems()
-                runOnUI { callback.onError(exception.localizedMessage) }
+                runOnUI { resultCallback?.onError(exception.localizedMessage) }
             } catch (exception: ArithmeticException) {
                 clearExpressionItems()
-                runOnUI { callback.onError(exception.localizedMessage) }
+                runOnUI { resultCallback?.onError(exception.localizedMessage) }
             } catch (exception: NumberFormatException) {
                 clearExpressionItems()
-                runOnUI { callback.onError("Invalid expression!") }
+                runOnUI { resultCallback?.onError("Invalid expression!") }
             }
         }
     }
