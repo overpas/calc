@@ -1,7 +1,6 @@
 package by.overpass.poms1.ui.main.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import by.overpass.poms1.R
